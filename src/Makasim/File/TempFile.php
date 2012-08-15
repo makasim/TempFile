@@ -6,9 +6,25 @@ namespace Makasim\File;
  */
 class TempFile extends \SplFileInfo 
 {
+    /**
+     * @var array
+     */
+    protected static $tempFilePool = array();
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __construct($file_name)
+    {
+        self::$tempFilePool[] = $this;
+        
+        parent::__construct($file_name);
+    }
+    
     public function __destruct()
     {
         if ($this->isFile()) {
+            var_dump('OK');
             @unlink($this->getRealPath());
         }
     }
