@@ -1,0 +1,22 @@
+{
+    "name": "makasim/temp-file",
+    "type": "library",
+    "description": "Temp file object",
+    "keywords": ["file", "temp"],
+    "homepage": "https://github.com/makasim/TempFile",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maksim Kotlyar",
+            "email": "kotlyar.maksim@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "Makasim": "src/"
+        }
+    }
+}
