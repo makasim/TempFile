@@ -24,7 +24,6 @@ class TempFile extends \SplFileInfo
     public function __destruct()
     {
         if ($this->isFile()) {
-            var_dump('OK');
             @unlink($this->getRealPath());
         }
     }
