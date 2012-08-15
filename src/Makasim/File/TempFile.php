@@ -12,11 +12,31 @@ class TempFile extends \SplFileInfo
             @unlink($this->getRealPath());
         }
     }
-    
+
+    /**
+     * @param string $prefix
+     * 
+     * @return TempFile
+     */
     public static function generate($prefix = 'php-tmp-file')
     {
         $fileClass = get_called_class();
         
         return new $fileClass(tempnam(sys_get_temp_dir(), $prefix));
+    }
+
+    /**
+     * @param mixed $file
+     * @param string $prefix
+     * 
+     * @return TempFile
+     */
+    public static function from($file, $prefix = 'php-tmp-file')
+    {
+        $tmpFile = static::generate($prefix);
+        
+        copy($file, $tmpFile);
+        
+        return $tmpFile;
     }
 }
