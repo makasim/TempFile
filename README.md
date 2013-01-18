@@ -9,13 +9,13 @@ Examples:
 <?php
 
 //generate
-$file = TempFile::generate();
+$file = \Makasim\File\TempFile::generate();
 
 //or create a temporary copy of persisted file
-$file = TempFile::from('path_to_persisted_file');
+$file = \Makasim\File\TempFile::from('path_to_persisted_file');
 
 //prevent file being removed
-$file = TempFile::generate();
+$file = \Makasim\File\TempFile::generate();
 
 $file->persist();
 ```
