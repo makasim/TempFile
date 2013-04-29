@@ -42,9 +42,21 @@ class TempFile extends \SplFileInfo
      *
      * @return TempFile
      */
-    public static function generate($prefix = 'php-tmp-file')
+    public static function generate($prefix = 'php-tmp-file', $suffix = '')
     {
-        return new static(tempnam(sys_get_temp_dir(), $prefix));
+        $filename = tempnam(sys_get_temp_dir(), $prefix);
+
+        if ($suffix) {
+            $i = 0;
+            do {
+                $newFilename = $filename . $i++ . $suffix;
+            } while (file_exists($newFilename));
+
+            rename($filename, $newFilename);
+            $filename = $newFilename;
+        }
+
+        return new static($filename);
     }
 
     /**
