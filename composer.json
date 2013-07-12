@@ -2,7 +2,7 @@
     "name": "makasim/temp-file",
     "type": "library",
     "description": "Temp file object",
-    "keywords": ["file", "temp"],
+    "keywords": ["file", "temp", "temp file"],
     "homepage": "https://github.com/makasim/TempFile",
     "license": "MIT",
     "authors": [
